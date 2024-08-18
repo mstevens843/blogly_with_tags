@@ -1,6 +1,6 @@
 # Blogly
 
-Blogly is a simple blogging application built with Flask and SQLAlchemy, designed to add, edit, and delete users from db. 
+Blogly is a simple blogging application built with Flask and SQLAlchemy, designed to add, edit, and delete users, posts, and tags from db. 
 
 ## Features
 
@@ -12,6 +12,12 @@ Blogly is a simple blogging application built with Flask and SQLAlchemy, designe
 - **Add a Post:** Create a new post for a user, including a title and content.
 - **Edit a Post:** Modify the content or title of an existing post.
 - **Delete a Post:** Remove a post from the database.
+- **View and Manage Tags:** 
+  - **Add a Tag:** Create a new tag to categorize posts.
+  - **Edit a Tag:** Modify the name of an existing tag.
+  - **Delete a Tag:** Remove a tag from the database.
+  - **Assign Tags to Posts:** When creating or editing a post, assign one or more tags to it for better categorization.
+  - **View Tags on Posts:** Tags associated with a post are displayed as badges on both the homepage and post detail page.
 
 ## Technologies Used
 

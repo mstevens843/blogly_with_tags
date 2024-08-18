@@ -29,11 +29,33 @@ class Post(db.Model):
     # Foreign key for the User table
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    # Define relationship to between post model and user model. One to many relationship. 
-    # backreg post creates reverse relationship, allowing you to access posts for specific user
-    # by calliung user.posts.
-    # one user can have many posts, but a post can only have 1 user. 
+    # Relationship between Post and User (One-to-Many relationship)
     user = db.relationship('User', backref='posts')
+
+    # Many-to-Many relationship with Tag model via PostTag join table
+    tags = db.relationship('Tag', secondary='post_tags', backref='posts')
+
+    # Helper method to retrieve tags for a post
+    def get_tags(self):
+        return ", ".join([tag.name for tag in self.tags])
+
+
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
+
+    # No backref here since it's already established in the Post model
+
+
+class PostTag(db.Model):
+    __tablename__ = 'post_tags'
+
+    # Composite primary key, composed of foreign keys from posts and tags
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
 
 
 def connect_db(app):

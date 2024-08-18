@@ -8,6 +8,10 @@ Blogly is a simple blogging application built with Flask and SQLAlchemy, designe
 - **Add a User:** Add a new user by providing full name, and image. 
 - **Edit User Details:** Edit the details of an existing user.
 - **Delete a User:** Remove a user from the database.
+- **View User's Posts:** View a list of posts for a specific user.
+- **Add a Post:** Create a new post for a user, including a title and content.
+- **Edit a Post:** Modify the content or title of an existing post.
+- **Delete a Post:** Remove a post from the database.
 
 ## Technologies Used
 
